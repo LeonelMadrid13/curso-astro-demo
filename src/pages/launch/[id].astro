@@ -1,10 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getLaunchBy, getLaunchesIds } from "../../services/spacex";
+import { getLaunchBy } from "../../services/spacex";
 import { type Doc } from "../../types/api";
 
 export const prerender = false;
-
 const { id } = Astro.params;
 
 if (!id) {
@@ -12,10 +11,6 @@ if (!id) {
 }
 
 const launch: Doc = await getLaunchBy({ id });
-
-// export async function getStaticPaths() {
-//     return await getLaunchesIds();
-// }
 ---
 
 <Layout title={`Lanzamiento ${id}`}>
